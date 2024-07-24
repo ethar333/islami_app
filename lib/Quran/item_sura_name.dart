@@ -4,8 +4,8 @@ import 'package:project5/Quran/Sura_details_screen.dart';
 import 'package:project5/Quran/sura_detail_arguments.dart';
 
   // custom widget => display name of Sura in listView:
-class SuraName extends StatelessWidget {  
-   SuraName({super.key,required this.name,required this.index});
+class ItemSuraName extends StatelessWidget {  
+   ItemSuraName({super.key,required this.name,required this.index});
    
    String name;      // name of Sura:
    int index;       // no.of Sura:
@@ -21,7 +21,7 @@ class SuraName extends StatelessWidget {
       );
 
       },
-      child: Text(name,            // text => this text is displayed inside the list:
+      child: Text(name,            // text => this text (sura Name) is displayed inside the list:
       style: Theme.of(context).textTheme.titleSmall,
        textAlign:TextAlign.center,    
       ),

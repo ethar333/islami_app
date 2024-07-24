@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:project5/home/hadeth_tab.dart';
+import 'package:project5/Hadeth/hadeth_tab.dart';
 import 'package:project5/Quran/quran_tab.dart';
 import 'package:project5/home/radio_tab.dart';
 import 'package:project5/home/tasbeh_tab.dart';
 import 'package:project5/my_theme.dart';
-import 'package:project5/Quran/sura_name.dart';
+import 'package:project5/Quran/item_sura_name.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});

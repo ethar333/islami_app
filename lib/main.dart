@@ -1,5 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:project5/Hadeth/hadeth_details_screen.dart';
 import 'package:project5/Quran/Sura_details_screen.dart';
 import 'package:project5/home/home_screen.dart';
 import 'package:project5/my_theme.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       HomeScreen.routeName:(context) => HomeScreen(),
       SplashScreen.routeName:(context) => SplashScreen(),
       SuraDetailsScreen.routeName:(context) => SuraDetailsScreen(),
+      HadethDetailsScreen.routeName:(context) => HadethDetailsScreen(),
    } ,
 
      

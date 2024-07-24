@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:project5/my_theme.dart';
-import 'package:project5/Quran/sura_name.dart';
+import 'package:project5/Quran/item_sura_name.dart';
 
 
 class QuranTab extends StatelessWidget {
@@ -161,7 +161,7 @@ class QuranTab extends StatelessWidget {
                   itemCount: suraNames.length,     // no. of items that display in listview:            
                   // index => no. of Sura that is displayed:
                   itemBuilder: (context, index) {
-                    return SuraName(name: suraNames[index],index: index,);
+                    return ItemSuraName(name: suraNames[index],index: index,);
                   },
                 ),
               ),

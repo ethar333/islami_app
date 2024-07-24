@@ -1,11 +1,12 @@
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project5/Quran/item_sura_details.dart';
 import 'package:project5/Quran/sura_detail_arguments.dart';
 import 'package:project5/my_theme.dart';
 
+   // widget => display content of sura:
+ 
 class SuraDetailsScreen extends StatefulWidget {
    SuraDetailsScreen({super.key});
   static const String routeName = 'sura_details_screen';    //To distinguish this screen:
@@ -16,8 +17,8 @@ class SuraDetailsScreen extends StatefulWidget {
 
 class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   
-  List<String> verses = [];               // To receive in it content(lines) from lines List:
-
+  List<String> verses = [];           // To receive in it content(lines) from lines List:
+  // this List => will displayed inside listView:                                    
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +75,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
             ListView.separated(             // listView=> To display inside it content of file:
             itemBuilder: (context,index){
 
-            return ItemSuraDetails(name: verses[index]);        // return => the widget that is displayed in listView:
+            return ItemSuraDetails(name: verses[index]);  // return => the widget that is displayed in listView:
              
             },
 
@@ -87,7 +88,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
              itemCount:verses.length,             // Length of listView:
              
-             ),          
+             ),
            
           ),
 

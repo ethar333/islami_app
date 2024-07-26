@@ -6,6 +6,7 @@ import 'package:project5/home/home_screen.dart';
 import 'package:project5/my_theme.dart';
 import 'package:project5/splash_screen.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(  
    debugShowCheckedModeBanner: false,
-   initialRoute:HomeScreen.routeName,
+   initialRoute:SplashScreen.routeName,
    routes:{
       HomeScreen.routeName:(context) => HomeScreen(),
       SplashScreen.routeName:(context) => SplashScreen(),
@@ -29,7 +30,9 @@ class MyApp extends StatelessWidget {
      
     theme:MyThemeData.lightMode ,
     //darkTheme: MyThemeData.darkMode,
-
+    
+    locale: Locale('ar'),
+    
 
     );
     

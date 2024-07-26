@@ -16,8 +16,9 @@ class SplashScreen extends StatelessWidget {
    return  Scaffold(
      
      body:AnimatedSplashScreen(
+      splashTransition: SplashTransition.rotationTransition,
       splashIconSize: double.infinity,
-      animationDuration: Duration(seconds:30),
+      animationDuration: Duration(seconds:3),
       //splashTransition: SplashTransition.rotationTransition,
       splash: Image.asset('assets/images/splash_image.png',
       

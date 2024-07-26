@@ -5,6 +5,7 @@ import 'package:project5/home/radio_tab.dart';
 import 'package:project5/home/tasbeh_tab.dart';
 import 'package:project5/my_theme.dart';
 import 'package:project5/Quran/item_sura_name.dart';
+import 'package:project5/settings/setting_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -88,7 +89,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 
                 ),
            
-           
+                BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                
+                label: 'Settings',
+                
+                ),
+
+
            
               ],
               
@@ -115,6 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
    Hadethtab(),
    TasbehTab(),
    RadioTab(),
+   SettingTab()
 
   ];
 }

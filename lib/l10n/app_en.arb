@@ -1,0 +1,16 @@
+
+ // English file:
+  //  Map:  
+
+{
+  
+  "islami" : "Islami",
+  "suraName" : "SuraName",
+  "quran"  :  "Quran",
+  "hadeth" : "Hadeth",
+  "tasbeh" : "Tasbeh",
+  "radio"  : "Radio",
+  "hadethName" : "HadethName"
+
+
+}

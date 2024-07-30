@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:project5/Hadeth/hadeth_content.dart';
 import 'package:project5/Hadeth/item_hadeth_details.dart';
 import 'package:project5/my_theme.dart';
+import 'package:project5/providers/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 class HadethDetailsScreen extends StatelessWidget {
   const HadethDetailsScreen({super.key});
@@ -14,6 +16,8 @@ class HadethDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+   var provider = Provider.of<AppConfigProvider>(context);    // object from provider:
+
     // receive The data:
     // args => object of dataclass (Hadeth):
     // args => has title and content of hadeth:
@@ -23,8 +27,20 @@ class HadethDetailsScreen extends StatelessWidget {
     return 
     Stack(
       children: [
+      
+       provider.isDarkMode()?
+        
+      Image.asset(
+          'assets/images/dark_backGround.png',           // display dark Background:
+          width: double.infinity,
+          height: double.infinity,
+        )
+
+        :                                   // else:
+                                   
+
         Image.asset(
-          'assets/images/background.png',
+          'assets/images/background.png',                // display Light Background:
           width: double.infinity,
           height: double.infinity,
         ),
@@ -32,7 +48,7 @@ class HadethDetailsScreen extends StatelessWidget {
           appBar: AppBar(
             centerTitle: true,
             title: Text(
-              '${args.title}',              // Use the data that received:
+              args.title,              // Use the data that received:
               style: Theme.of(context).textTheme.displayLarge,
             ),
           ),
@@ -40,7 +56,13 @@ class HadethDetailsScreen extends StatelessWidget {
          
           body: Container(
             decoration: BoxDecoration(
-              color: MyThemeData.whiteColor,
+              color:
+               provider.isDarkMode()?
+               MyThemeData.primaryDark        // display color of container dark if theme is dark:
+
+               :
+                            
+               MyThemeData.whiteColor,
               borderRadius: BorderRadius.circular(24),
             ),
            

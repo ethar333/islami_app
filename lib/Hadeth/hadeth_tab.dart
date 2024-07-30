@@ -3,9 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:project5/Hadeth/hadeth_content.dart';
 import 'package:project5/Hadeth/item_hadeth_name.dart';
 import 'package:project5/my_theme.dart';
+import 'package:project5/providers/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 class Hadethtab extends StatefulWidget {
-   Hadethtab({super.key});
+   const Hadethtab({super.key});
 
   @override
   State<Hadethtab> createState() => _HadethtabState();
@@ -21,6 +23,9 @@ class _HadethtabState extends State<Hadethtab> {
   @override
   Widget build(BuildContext context) {
 
+       var provider = Provider.of<AppConfigProvider>(context);    // object from provider:
+
+
         if (HadethContent.isEmpty)   // call function when list be displayed is empty:
          {
              loadHadethFile();
@@ -29,23 +34,36 @@ class _HadethtabState extends State<Hadethtab> {
     return Column(
       children: [
 
+
          Expanded(
           flex: 1,
           child: Image.asset('assets/images/hadeth_logo.png'),
           ),
 
          Divider(
-          color: MyThemeData.primaryLight,
+          color:
+          provider.isDarkMode()?
+           MyThemeData.yellowColor
+
+           :
+          
+           MyThemeData.primaryLight,
           thickness: 2,
          ),
 
            Text('Hadeth Name',
-            style: Theme.of(context).textTheme.titleMedium,
+            style: Theme.of(context).textTheme.headlineSmall,
 
           ),
 
           Divider(
-                color: MyThemeData.primaryLight,
+                color:
+                provider.isDarkMode()?
+                MyThemeData.yellowColor
+
+                :
+                
+                 MyThemeData.primaryLight,
                 thickness: 2,
               ),
 
@@ -70,7 +88,13 @@ class _HadethtabState extends State<Hadethtab> {
                   //To make a separation between items in listView:
                   separatorBuilder: ((context, index) { 
                     return Divider(
-                      color: MyThemeData.primaryLight,
+                      color: 
+                      provider.isDarkMode()?
+                      MyThemeData.yellowColor
+
+                      :
+                      
+                      MyThemeData.primaryLight,
                       thickness: 1,
                     );
                   }),

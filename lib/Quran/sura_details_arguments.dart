@@ -1,4 +1,5 @@
 
+
 //dataclass(Model) => represent data that we want to transefer it:
 
 class SuraDetailsArgs{ 

@@ -1,4 +1,0 @@
-
-arb-dir: lib/l10n                 // this location that translation will be available:
-template-arb-file: app_en.arb
-output-localization-file: app_localizations.dart

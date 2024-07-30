@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:project5/Quran/Sura_details_screen.dart';
-import 'package:project5/Quran/sura_detail_arguments.dart';
+import 'package:project5/Quran/sura_details_arguments.dart';
 
   // custom widget => display name of Sura in listView:
 class ItemSuraName extends StatelessWidget {  

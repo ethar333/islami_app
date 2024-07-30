@@ -4,11 +4,12 @@ import 'package:project5/Quran/quran_tab.dart';
 import 'package:project5/home/radio_tab.dart';
 import 'package:project5/home/tasbeh_tab.dart';
 import 'package:project5/my_theme.dart';
-import 'package:project5/Quran/item_sura_name.dart';
+import 'package:project5/providers/app_config_provider.dart';
 import 'package:project5/settings/setting_tab.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
   static const String routeName = 'home_screen';
 
   @override
@@ -21,13 +22,28 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+   var provider = Provider.of<AppConfigProvider>(context);
+
     return Stack(
       children: [
+       
+         provider.isDarkMode()?              // If theme => dark,display darkBackground: 
+         Image.asset(
+          'assets/images/dark_backGround.png',
+          width: double.infinity,
+          height: double.infinity,
+        )
+
+          :                          // else: if not dark:
+
+                              
         Image.asset(
           'assets/images/background.png',
           width: double.infinity,
           height: double.infinity,
         ),
+
         Scaffold(
           appBar: AppBar(
             centerTitle: true,
@@ -118,12 +134,12 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> tabs =[        // List => to store it 
-   QuranTab(),
-   Hadethtab(),
-   TasbehTab(),
-   RadioTab(),
-   SettingTab()
+  List<Widget> tabs =[        // List => to store tabs in it:
+    QuranTab(),
+    Hadethtab(),
+    TasbehTab(),
+    RadioTab(),
+    SettingTab()
 
   ];
 }

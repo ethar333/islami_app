@@ -5,7 +5,8 @@ import 'package:project5/Hadeth/hadeth_content.dart';
 import 'package:project5/Hadeth/hadeth_details_screen.dart';
 
   // HadethName(widget) => resposible for name (title) of hadeth:
-class HadethName extends StatelessWidget {  
+
+ class HadethName extends StatelessWidget {  
    HadethName({super.key  , required this.hadeth});
    
     Hadeth hadeth;         // object from dataclass To reach the title:

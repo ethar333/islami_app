@@ -2,13 +2,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project5/Quran/item_sura_details.dart';
-import 'package:project5/Quran/sura_detail_arguments.dart';
+import 'package:project5/Quran/sura_details_arguments.dart';
 import 'package:project5/my_theme.dart';
+import 'package:project5/providers/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
    // widget => display content of sura:
  
 class SuraDetailsScreen extends StatefulWidget {
-   SuraDetailsScreen({super.key});
+   const SuraDetailsScreen({super.key});
   static const String routeName = 'sura_details_screen';    //To distinguish this screen:
   
   @override
@@ -23,6 +25,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   @override
   Widget build(BuildContext context) {
    
+      var provider = Provider.of<AppConfigProvider>(context);    // object from provider:
+
+
    // To receive data from the screen before:
    // args => object from type dataclass :
     var args = ModalRoute.of(context)!.settings.arguments as SuraDetailsArgs;
@@ -36,6 +41,17 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
     return Stack(
       children: [
+
+          provider.isDarkMode()?
+
+         Image.asset(
+          'assets/images/dark_backGround.png',
+          width: double.infinity,
+          height: double.infinity,
+        )
+
+        :
+
         Image.asset(
           'assets/images/background.png',
           width: double.infinity,
@@ -45,7 +61,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           appBar: AppBar(
             centerTitle: true,
             title: Text(
-              '${args.name}',              // Use the data that received:
+              args.name,              // Use the data that received:
               style: Theme.of(context).textTheme.displayLarge,
             ),
           ),
@@ -53,7 +69,12 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
          
           body: Container(
             decoration: BoxDecoration(
-              color: MyThemeData.whiteColor,
+              color:
+              provider.isDarkMode()?
+               MyThemeData.primaryDark
+               :
+                  
+               MyThemeData.whiteColor,
               borderRadius: BorderRadius.circular(24),
             ),
            

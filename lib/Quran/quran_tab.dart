@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:project5/my_theme.dart';
 import 'package:project5/Quran/item_sura_name.dart';
+import 'package:project5/providers/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 
 class QuranTab extends StatelessWidget {
@@ -131,21 +133,38 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   
+   var provider = Provider.of<AppConfigProvider>(context);    // object from provider:
+
+
     return Column(
             children: [
               Center(
                 child: Image.asset('assets/images/qur2an_screen_logo.png'),
               ),
               Divider(
-                color: MyThemeData.primaryLight,
+                
+                color: provider.isDarkMode()?
+                MyThemeData.yellowColor
+
+                :                            // else:
+
+                MyThemeData.primaryLight,
                 thickness: 2,
               ),
+
               Text(
                 'Sura Name',
-                style: Theme.of(context).textTheme.titleMedium,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
+              
               Divider(
-                color: MyThemeData.primaryLight,
+                color:provider.isDarkMode()?
+                MyThemeData.yellowColor
+                
+                :
+                
+                MyThemeData.primaryLight,
                 thickness: 2,
               ),
               Expanded(
@@ -153,7 +172,11 @@ class QuranTab extends StatelessWidget {
                   //To make a separation between items in listView:
                   separatorBuilder: ((context, index) { 
                     return Divider(
-                      color: MyThemeData.primaryLight,
+                      color: provider.isDarkMode()?
+                      MyThemeData.yellowColor
+                     :
+                      
+                      MyThemeData.primaryLight,
                       thickness: 1,
                     );
                   }),
